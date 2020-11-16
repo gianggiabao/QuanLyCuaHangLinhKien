@@ -33,8 +33,7 @@ namespace QuanLyCuaHangLinhKien
                         GiaoDien h = new GiaoDien();
                         h.Menu();
                         break;
-                    case ConsoleKey.F5:
-                        Console.Beep();
+                    case ConsoleKey.F5:                       
                         Environment.Exit(0);
                         break;
                 }

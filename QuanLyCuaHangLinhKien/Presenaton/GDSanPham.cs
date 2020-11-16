@@ -77,8 +77,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             do
             {
                 
-                Console.Clear();
-                Console.Beep();
+                Console.Clear();               
                 Console.SetCursorPosition(20, 8);  Console.Write("╔═══════════════════════════════════════════════════════════════════════════╗");
                 Console.SetCursorPosition(20, 9);  Console.Write("║                         CHƯƠNG TRÌNH QUẢN LÝ CỦA HÀNG                     ║");
                 Console.SetCursorPosition(20, 10); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
@@ -102,28 +101,24 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 ConsoleKeyInfo kt = Console.ReadKey();
                 switch(kt.Key)
                 {
-                    case ConsoleKey.F1:
-                        Console.Beep();
+                    case ConsoleKey.F1:                       
                         Nhap();
                         Hien();
                         Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F2:
-                        Console.Beep();
+                    case ConsoleKey.F2:                       
                         Sua();
                         Hien();
                         Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F4:
-                        Console.Beep(); 
+                    case ConsoleKey.F4:                       
                         Hien();
                         Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F5:
-                        Console.Beep();
+                    case ConsoleKey.F5:                        
                         TimKiem();
                         Hien();
                         Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");

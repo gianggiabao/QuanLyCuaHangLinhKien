@@ -14,8 +14,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         {
             do
             {
-                Console.Clear();
-                Console.Beep();
+                Console.Clear();               
                 Console.SetCursorPosition(20, 8);  Console.Write("╔═══════════════════════════════════════════════════════════════════════════╗");
                 Console.SetCursorPosition(20, 9);  Console.Write("║                         CHƯƠNG TRÌNH QUẢN LÝ CỦA HÀNG                     ║");
                 Console.SetCursorPosition(20, 10); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
