@@ -10,8 +10,9 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
     public interface ISanPhamDAL
     {
         List<SanPham> GetAllSanPham();
-        void ThemSanPham(SanPham hs);
+        void ThemSanPham(SanPham sp);
         void Update(List<SanPham> list);
+     
     }
       
 }

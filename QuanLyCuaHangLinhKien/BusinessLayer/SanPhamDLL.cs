@@ -23,12 +23,12 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
             else
                 throw new Exception("du lieu sai");
         }
-        public void XoaSanPham(string masanpham)
+        public void XoaSanPham(string Masp)
         {
             int i;
             List<SanPham> list = GetAllSanPham();
             for (i = 0; i < list.Count; ++i)
-                if (list[i].Masp == masanpham) break;
+                if (list[i].Masp == Masp) break;
             if (i < list.Count)
             {
                 list.RemoveAt(i);

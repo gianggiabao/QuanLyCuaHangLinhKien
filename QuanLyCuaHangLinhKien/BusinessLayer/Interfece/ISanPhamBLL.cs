@@ -10,7 +10,7 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
     {
         List<SanPham> GetAllSanPham();
         void ThemSanPham(SanPham sp);
-        void XoaSanPham(string masanpham);
+        void XoaSanPham(string Masp);
         void SuaSanPham(SanPham sp);
         List<SanPham> TimSanPham(SanPham sp);
     }

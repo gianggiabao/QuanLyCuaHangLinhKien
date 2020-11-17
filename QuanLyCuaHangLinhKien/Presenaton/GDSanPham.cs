@@ -13,66 +13,72 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Nhap()
         {
             Console.Clear();
-            Console.SetCursorPosition(45, 2); Console.WriteLine("NHẬP THÔNG TIN SẢN PHẨM");
+            Console.SetCursorPosition(25, 2); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(25, 3); Console.WriteLine("║                         Nhập Thông Tin Sản Phẩm                           ║");
+            Console.SetCursorPosition(25, 4); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
             SanPham sp = new SanPham();           
-            Console.SetCursorPosition(25, 4); Console.Write("Nhập Mã Sản Phẩm: ");
+            Console.SetCursorPosition(27, 5); Console.Write("Nhập Mã Sản Phẩm: ");
             sp.Masp = Console.ReadLine();
-            Console.SetCursorPosition(25, 5); Console.Write("Nhập Tên Sản Phẩm: ");
+            Console.SetCursorPosition(27, 7); Console.Write("Nhập Tên Sản Phẩm: ");
             sp.Tensp = Console.ReadLine();
-            Console.SetCursorPosition(25, 6); Console.Write("Nhập Giá Sản Phẩm: ");
+            Console.SetCursorPosition(27, 9); Console.Write("Nhập Giá Sản Phẩm: ");
             sp.Dongia = int.Parse(Console.ReadLine());
-            Console.SetCursorPosition(25, 7); Console.Write("Nhập Số Lượng Sản Phẩm: ");
+            Console.SetCursorPosition(27, 11); Console.Write("Nhập Số Lượng Sản Phẩm: ");          
             sp.Soluong = int.Parse(Console.ReadLine());
             spDLL.ThemSanPham(sp);
+            Console.SetCursorPosition(25, 13); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
         }
         public void Hien()
         {
-            Console.Clear();
-            Console.SetCursorPosition(45, 2); Console.WriteLine("HIỆN THÔNG TIN SẢN PHẨM");
+            Console.Clear();       
+          Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
+          Console.WriteLine("║                         Hiện Thông Tin Sản Phẩm                           ║");
+          Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
+          Console.WriteLine("║   Ngày Giờ   ║  Mã Sản Phẩm  ║ Tên Sản Phẩm ║    Giá     ║    Số Lượng    ║");
+          Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
             List<SanPham> List = spDLL.GetAllSanPham();
             foreach (var sp in List)
-                Console.WriteLine(sp.Ngaygio+"\t"+sp.Masp + "\t" + sp.Tensp + "\t" + sp.Dongia + "\t" + sp.Soluong);
+                 Console.WriteLine(sp.Ngaygio+"\t"+sp.Masp + "\t" + sp.Tensp + "\t" + sp.Dongia + "\t" + sp.Soluong);
+          Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
         }
         public void Sua()
         {
             Console.Clear();
-            Console.SetCursorPosition(45, 2); Console.WriteLine("SỬA THÔNG TIN SẢN PHẨM");
+            Console.SetCursorPosition(25, 2); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(25, 3); Console.WriteLine("║                        Sửa Thông Tin Sản Phẩm                             ║");
+            Console.SetCursorPosition(25, 4); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
             List<SanPham> list = spDLL.GetAllSanPham();
             string Masua;
-            Console.SetCursorPosition(25, 4);  Console.Write("Nhập Mã Sản Phẩm Cần Sửa:");
+            Console.SetCursorPosition(27, 6); Console.Write("Nhập Mã Sản Phẩm Cần Sửa:");         
             Masua = Console.ReadLine();
-            int i = 0;
-            for (i = 0; i < list.Count; ++i)
+            Console.SetCursorPosition(25, 14); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
+            for (int i = 0; i < list.Count; ++i)
             {
                 if (list[i].Masp == Masua)
                 {
                     if (i < list.Count)
                     {
                         SanPham sp = new SanPham(list[i]);
-                        Console.SetCursorPosition(25, 5); Console.Write("Nhập Tên  Mới :");
+                        Console.SetCursorPosition(27, 8); Console.Write("Nhập Tên  Mới :");
                         string ten = Console.ReadLine();
                         if (!string.IsNullOrEmpty(ten)) sp.Tensp = ten;
-                        Console.SetCursorPosition(25, 6); Console.Write("Nhập Giá Mới:");
+                        Console.SetCursorPosition(27, 10); Console.Write("Nhập Giá Mới:");
                         int gia = int.Parse(Console.ReadLine());
                         if (gia > 0) sp.Dongia = gia;
-                        Console.SetCursorPosition(25, 7); Console.Write("Nhập Số Lượng Mới:");
+                        Console.SetCursorPosition(27, 12); Console.Write("Nhập Số Lượng Mới:");
                         int soluong = int.Parse(Console.ReadLine());
                         if (soluong > 0) sp.Soluong = soluong;
-                        spDLL.SuaSanPham(sp);
+                        spDLL.SuaSanPham(sp);                   
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Không tồn tại mã sản phẩm này");
+                    else
+                    {
+                        Console.WriteLine("Không tồn tại mã sản phẩm này");
+                    }  
                 }
             }
         }
-        public void TimKiem()
-        {
-            Console.Clear();
-            Console.SetCursorPosition(45, 2); Console.WriteLine("TÌM KIẾM THÔNG TIN SẢN PHẨM");
-        }
-        public void menusp()
+        
+        public void Menusp()
         {
             do
             {
@@ -104,24 +110,28 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                     case ConsoleKey.F1:                       
                         Nhap();
                         Hien();
-                        Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                        Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F2:                       
-                        Sua();
-                        Hien();
-                        Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                    case ConsoleKey.F2:                          
+                        Sua(); 
+                        Hien();             
+                        Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                        Console.ReadKey();
+                        break;
+                    case ConsoleKey.F3:
+                        Hien();                       
+                        Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F4:                       
                         Hien();
-                        Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                        Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F5:                        
-                        TimKiem();
+                    case ConsoleKey.F5:                                                
                         Hien();
-                        Console.SetCursorPosition(25, 10); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                        Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F6:

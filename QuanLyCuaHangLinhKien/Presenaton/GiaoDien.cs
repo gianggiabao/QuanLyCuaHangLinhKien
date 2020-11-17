@@ -39,10 +39,9 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 {
                     case ConsoleKey.F1:
                         GDSanPham GDSP = new GDSanPham();
-                        GDSP.menusp();
+                        GDSP.Menusp();
                         break;
-                    case ConsoleKey.F5:
-                        Console.Beep();
+                    case ConsoleKey.F5:                       
                         Program.Modau();
                         break;
                 }
