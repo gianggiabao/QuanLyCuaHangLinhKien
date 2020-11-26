@@ -29,8 +29,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
         }
         //Chèn một bản ghi học sinh vào tệp
         public void ThemSanPham(SanPham sp)
-        {           
-            StreamWriter fwrite = File.AppendText(Txtfile);
+        {   StreamWriter fwrite = File.AppendText(Txtfile);
             fwrite.WriteLine();
             fwrite.Write(sp.Ngaygio+"#"+sp.Masp+ "#" + sp.Tensp + "#" + sp.Dongia+"#"+sp.Soluong);
             fwrite.Close();

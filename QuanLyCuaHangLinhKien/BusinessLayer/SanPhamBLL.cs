@@ -9,16 +9,16 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
 {
     public class SanPhamBLL : ISanPhamBLL
     {
-        private ISanPhamDAL spDA = new SanphamDAL();
+        private ISanPhamDAL sp = new SanphamDAL();
         public List<SanPham> GetAllSanPham()
         {
-            return spDA.GetAllSanPham();
+            return sp.GetAllSanPham();
         }
         public void ThemSanPham(SanPham sp)
         {
             if (!string.IsNullOrEmpty(sp.Tensp))
             {
-                spDA.ThemSanPham(sp);
+                this.sp.ThemSanPham(sp);
             }
             else
                 throw new Exception("du lieu sai");
@@ -31,12 +31,12 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
                 if (list[i].Masp == Masp) break;
             if (i < list.Count)
             {
+               
                 list.RemoveAt(i);
-                spDA.Update(list);
-
+                sp.Update(list);
             }
             else
-                throw new Exception("khong ton tai ma nay");
+                throw new Exception("Khong ton tai ma nay");
 
         }
         public void SuaSanPham(SanPham sp)
@@ -49,7 +49,7 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
             {
                 list.RemoveAt(i);
                 list.Add(sp);
-                spDA.Update(list);
+                this.sp.Update(list);
             }
             else
                 throw new Exception("Khong ton tai san pham  nay");

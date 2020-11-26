@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Interfece\ISanPhamBLL.cs" />
-    <Compile Include="BusinessLayer\SanPhamDLL.cs" />
+    <Compile Include="BusinessLayer\SanPhamBLL.cs" />
     <Compile Include="DataAccessLayer\Interface\ISanPhamDAL.cs" />
     <Compile Include="DataAccessLayer\SanphamDAL.cs" />
     <Compile Include="Entities\Hoadon.cs" />
