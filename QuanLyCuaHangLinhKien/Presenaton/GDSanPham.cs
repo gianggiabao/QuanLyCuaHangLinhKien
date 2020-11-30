@@ -35,12 +35,13 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(13, 6); Console.WriteLine("║                                  Hiện Thông Tin Sản Phẩm                                ║");
             Console.SetCursorPosition(13, 7); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(13, 8); Console.WriteLine("║       Ngày Giờ       ║   Mã Sản Phẩm   ║  Tên Sản Phẩm  ║     Giá      ║    Số Lượng    ║");
+            Console.SetCursorPosition(13, 8); Console.WriteLine("║         Ngày Giờ          ║  Mã Sản Phẩm  ║ Tên Sản Phẩm  ║    Giá Bán    ║  Số Lượng   ║");
             Console.SetCursorPosition(13, 9); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");        
             List<SanPham> List = SP.GetAllSanPham();
             foreach (var sp in List)
-            Console.WriteLine("\t      "+sp.Ngaygio+"\t     "+sp.Masp + "\t     " + sp.Tensp + "\t     " + sp.Dongia + "\t      " + sp.Soluong);
+            Console.WriteLine("\t      " + sp.Ngaygio+ "\t ║      " + sp.Masp + "\t ║     " + sp.Tensp + "\t ║     " + sp.Dongia + "\t ║     " + sp.Soluong);
             Console.SetCursorPosition(13, 18);Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
+            Console.SetCursorPosition(15, 20);Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
         }
         public void Sua()
         {
@@ -104,8 +105,28 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         }
         public void Timkiem()
         {
-            Console.Clear();
-
+            Console.Clear();         
+            Console.SetCursorPosition(25, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(25, 6); Console.WriteLine("║                             Tìm Kiếm Sản Phẩm                             ║");
+            Console.SetCursorPosition(25, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
+            Console.SetCursorPosition(25, 15);Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
+            List<SanPham> list = SP.GetAllSanPham();
+            string matim;
+            Console.SetCursorPosition(27, 9); Console.Write("Nhập Giá Cần Tìm:");
+            matim = Console.ReadLine();
+            int i = 0;
+            for (i = 0; i < list.Count; ++i)
+                if (list[i].Masp == matim) break;
+            if (i < list.Count)
+            {
+                 SanPham sp = new SanPham(list[i]);
+                 SP.TimSanPham(sp);
+            }
+            else
+            {
+                Console.SetCursorPosition(27, 11); Console.Write("Không tồn tại giá sản phẩm này.....");
+                Console.ReadKey();
+            }
         }
         public void Menusp()
         {
@@ -138,29 +159,25 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                     case ConsoleKey.F1:                       
                         Nhap();
                         Hien();
-                        Console.SetCursorPosition(13, 19); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F2:                          
                         Sua(); 
                         Hien();
-                        Console.SetCursorPosition(13, 19); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F3:
                         Xoa();
                         Hien();
-                        Console.SetCursorPosition(13, 19); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F4:                       
                         Hien();
-                        Console.SetCursorPosition(13, 19); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F5:                                                
-                        Hien();
-                        Console.SetCursorPosition(13, 19); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                    case ConsoleKey.F5:
+                        Timkiem();
+                        Hien();                   
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F6:
