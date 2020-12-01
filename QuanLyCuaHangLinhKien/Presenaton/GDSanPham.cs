@@ -23,11 +23,10 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(27, 10); Console.Write("Nhập Tên Sản Phẩm: ");
             sp.Tensp = Console.ReadLine();
             Console.SetCursorPosition(27, 12); Console.Write("Nhập Giá Sản Phẩm: ");
-            sp.Dongia = int.Parse(Console.ReadLine());
+            sp.Gia = int.Parse(Console.ReadLine());
             Console.SetCursorPosition(27, 14); Console.Write("Nhập Số Lượng Sản Phẩm: ");          
             sp.Soluong = int.Parse(Console.ReadLine());           
-            SP.ThemSanPham(sp);
-            
+            SP.ThemSanPham(sp); 
         }
         public void Hien()
         {
@@ -39,7 +38,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(13, 9); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");        
             List<SanPham> List = SP.GetAllSanPham();
             foreach (var sp in List)
-            Console.WriteLine("\t      " + sp.Ngaygio+ "\t ║      " + sp.Masp + "\t ║     " + sp.Tensp + "\t ║     " + sp.Dongia + "\t ║     " + sp.Soluong);
+            Console.WriteLine("\t      " + sp.Ngaygio+ "\t ║      " + sp.Masp + "\t ║     " + sp.Tensp + "\t ║     " + sp.Gia + "\t ║     " + sp.Soluong);
             Console.SetCursorPosition(13, 18);Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
             Console.SetCursorPosition(15, 20);Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
         }
@@ -53,8 +52,8 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             List<SanPham> list = SP.GetAllSanPham();
             string Masua;
             Console.SetCursorPosition(27, 9); Console.Write("Nhập Mã Sản Phẩm Cần Sửa:");
-            Masua = Console.ReadLine();          
-            int i = 0;
+            Masua = Console.ReadLine();
+            int i;
             for (i = 0; i < list.Count; ++i) 
                 if (list[i].Masp == Masua) break;
             if (i < list.Count)
@@ -65,7 +64,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                     if (!string.IsNullOrEmpty(ten)) sp.Tensp = ten;
                     Console.SetCursorPosition(27, 13); Console.Write("Nhập Giá Sản Phẩm Mới :");
                     int gia = int.Parse(Console.ReadLine());
-                    if (gia > 0) sp.Dongia = gia;
+                    if (gia > 0) sp.Gia = gia;
                     Console.SetCursorPosition(27, 15); Console.Write("Nhập Số Lượng Sản Phẩm Mới :");
                     int soluong = int.Parse(Console.ReadLine());
                     if (soluong > 0) sp.Soluong = soluong;
@@ -88,7 +87,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             string Maxoa;
             Console.SetCursorPosition(27, 9); Console.Write("Nhập Mã Sản Phẩm Cần Xóa:");
             Maxoa = Console.ReadLine();
-            int i = 0;
+            int i;
             for (i = 0; i < list.Count; ++i)
                 if (list[i].Masp == Maxoa) break;
             if(i<list.Count)
@@ -114,7 +113,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             string matim;
             Console.SetCursorPosition(27, 9); Console.Write("Nhập Giá Cần Tìm:");
             matim = Console.ReadLine();
-            int i = 0;
+            int i;
             for (i = 0; i < list.Count; ++i)
                 if (list[i].Masp == matim) break;
             if (i < list.Count)

@@ -31,7 +31,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
         public void ThemSanPham(SanPham sp)
         {   StreamWriter fwrite = File.AppendText(Txtfile);
             fwrite.WriteLine();
-            fwrite.Write(sp.Ngaygio+"#"+sp.Masp+ "#" + sp.Tensp + "#" + sp.Dongia+"#"+sp.Soluong);
+            fwrite.Write(sp.Ngaygio+"#"+sp.Masp+ "#" + sp.Tensp + "#" + sp.Gia+"#"+sp.Soluong);
             fwrite.Close();
         }
         //Cập nhật lại danh sách vào tệp        
@@ -39,7 +39,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
         {
             StreamWriter fwrite = File.CreateText(Txtfile);
             for (int i = 0; i < list.Count; ++i)
-                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Masp + "#" + list[i].Tensp + "#" + list[i].Dongia+"#"+list[i].Soluong );
+                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Masp + "#" + list[i].Tensp + "#" + list[i].Gia+"#"+list[i].Soluong );
             fwrite.Close();
         }
         // Xóa một sản phẩm khi biết mã      

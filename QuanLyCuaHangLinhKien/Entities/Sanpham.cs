@@ -11,7 +11,7 @@ namespace QuanLyCuaHangLinhKien.Entities
         private DateTime ngaygio;
         private string tensp;
         private string masp;
-        private int dongia;
+        private int gia;
         private int soluong;  
         public DateTime Ngaygio
         {
@@ -35,13 +35,13 @@ namespace QuanLyCuaHangLinhKien.Entities
                     masp = value;
             }
         }
-        public int Dongia
+        public int Gia
         {
-            get { return dongia; }
+            get { return gia; }
             set
             {
                 if (value > 0)
-                    dongia = value;
+                    gia = value;
             }
         }  
         public int Soluong
@@ -63,15 +63,15 @@ namespace QuanLyCuaHangLinhKien.Entities
             this.ngaygio = sp.ngaygio;
             this.masp = sp.masp;
             this.tensp = sp.tensp;
-            this.dongia = sp.dongia;
+            this.gia = sp.gia;
             this.soluong = sp.soluong;
         }
-        public SanPham(DateTime ngaygio,string masp, string tensp, int dongia,int soluong)
+        public SanPham(DateTime ngaygio,string masp, string tensp, int gia,int soluong)
         {
             this.ngaygio = ngaygio;
             this.masp= masp;
             this.tensp = tensp;
-            this.dongia = dongia;
+            this.gia = gia;
             this.soluong = soluong;
         }
     }

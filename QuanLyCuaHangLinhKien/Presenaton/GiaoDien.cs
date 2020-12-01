@@ -22,9 +22,9 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 10); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 11); Console.Write("║    F1    ║            Quản lý Sản Phẩm                                    ║");
                 Console.SetCursorPosition(20, 12); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 13); Console.Write("║    F2    ║            Quản Lý Nhân Viên                                   ║");
+                Console.SetCursorPosition(20, 13); Console.Write("║    F2    ║            Quản Lý Khách Hàng                                  ║");
                 Console.SetCursorPosition(20, 14); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 15); Console.Write("║    F3    ║            Quản Lý Khách Hàng                                  ║");
+                Console.SetCursorPosition(20, 15); Console.Write("║    F3    ║            Quản Lý Nhân Viên                                   ║");
                 Console.SetCursorPosition(20, 16); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 17); Console.Write("║    F4    ║            Quản Lý Hóa Đơn                                     ║");
                 Console.SetCursorPosition(20, 18); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
@@ -41,8 +41,12 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                         GDSanPham GDSP = new GDSanPham();
                         GDSP.Menusp();
                         break;
+                    case ConsoleKey.F2:
+                        GDKhachHang GDKH = new GDKhachHang();
+                        GDKH.Menukh();
+                        break;
                     case ConsoleKey.F5:                       
-                        Program.Modau();
+                        Program.Modau(); 
                         break;
                 }
             } while (true);

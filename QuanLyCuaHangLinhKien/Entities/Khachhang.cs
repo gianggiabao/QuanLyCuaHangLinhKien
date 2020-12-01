@@ -8,11 +8,16 @@ namespace QuanLyCuaHangLinhKien.Entities
 {
    public class Khachhang
     {
+        private DateTime ngaygiokh;
         private string makh;
-        private string tenkhachhang;
+        private string tenkh;
         private string diachi;
         private string sdt;
-        public string Makhachhang
+        public DateTime Ngaygiokh
+        {
+            get { return ngaygiokh; }
+        }
+        public string Makh
         {
             get { return makh; }
             set
@@ -21,13 +26,13 @@ namespace QuanLyCuaHangLinhKien.Entities
                     makh = value;
             }
         }
-        public string Tennkhachhang
+        public string Tenkh
         {
-            get { return tenkhachhang; }
+            get { return tenkh; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    tenkhachhang = value;
+                    tenkh = value;
             }
         }
         public string Diachi
@@ -44,9 +49,29 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return sdt; }
             set
             {
-                if (!string.IsNullOrEmpty(value) && value.Length == 10)
+                if (!string.IsNullOrEmpty(value)) 
                     sdt = value;
             }
+        }
+        public Khachhang()
+        {
+            ngaygiokh = DateTime.Now;
+        }
+        public Khachhang(Khachhang kh)
+        {
+            this.ngaygiokh = kh.ngaygiokh;
+            this.makh = kh.makh;
+            this.tenkh = kh.tenkh;
+            this.diachi = kh.diachi;
+            this.sdt = kh.sdt;
+        }
+        public Khachhang(DateTime ngaygiokh, string makh, string tenkh, string diachi,string sdt)
+        {
+            this.ngaygiokh = ngaygiokh;
+            this.makh = makh;
+            this.tenkh = tenkh;
+            this.diachi  = diachi;
+            this.sdt = sdt;
         }
     }
 }

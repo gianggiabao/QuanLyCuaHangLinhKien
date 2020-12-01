@@ -60,7 +60,7 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
             List<SanPham> kq = new List<SanPham>();
             if (string.IsNullOrEmpty(sp.Masp) &&
                 string.IsNullOrEmpty(sp.Tensp) &&
-                sp.Dongia == 0)
+                sp.Gia == 0)
             {
                 kq = list;
             }
@@ -75,10 +75,10 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
             }
 
             //Tim theo gia
-            else if (sp.Dongia > 0)
+            else if (sp.Gia > 0)
             {
                 for (int i = 0; i < list.Count; ++i)
-                    if (list[i].Dongia == sp.Dongia)
+                    if (list[i].Gia == sp.Gia)
                     {
                         kq.Add(new SanPham(list[i]));
                     }
