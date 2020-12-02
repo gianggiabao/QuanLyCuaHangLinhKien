@@ -19,33 +19,33 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 7);  Console.Write("║                         CHƯƠNG TRÌNH QUẢN LÝ CỦA HÀNG                     ║");
                 Console.SetCursorPosition(20, 8);  Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 9);  Console.Write("║                                 MENU LỰA CHỌN                             ║");
-                Console.SetCursorPosition(20, 10); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 11); Console.Write("║    F1    ║            Quản lý Sản Phẩm                                    ║");
-                Console.SetCursorPosition(20, 12); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 13); Console.Write("║    F2    ║            Quản Lý Khách Hàng                                  ║");
-                Console.SetCursorPosition(20, 14); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 15); Console.Write("║    F3    ║            Quản Lý Nhân Viên                                   ║");
-                Console.SetCursorPosition(20, 16); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 17); Console.Write("║    F4    ║            Quản Lý Hóa Đơn                                     ║");
-                Console.SetCursorPosition(20, 18); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 19); Console.Write("║    F5    ║            Thoát Khỏi Chương Trình                             ║");
-                Console.SetCursorPosition(20, 20); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 10); Console.Write("╠══════════╦════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 11); Console.Write("║    1     ║            Quản lý Sản Phẩm                                    ║");
+                Console.SetCursorPosition(20, 12); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 13); Console.Write("║    2     ║            Quản Lý Khách Hàng                                  ║");
+                Console.SetCursorPosition(20, 14); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 15); Console.Write("║    3     ║            Quản Lý Nhân Viên                                   ║");
+                Console.SetCursorPosition(20, 16); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 17); Console.Write("║    4     ║            Quản Lý Hóa Đơn                                     ║");
+                Console.SetCursorPosition(20, 18); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 19); Console.Write("║    5     ║            Thoát Khỏi Chương Trình                             ║");
+                Console.SetCursorPosition(20, 20); Console.Write("╠══════════╩════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 21); Console.Write("║  Mời Bạn Chọn Chức Năng :                                                 ║");
                 Console.SetCursorPosition(20, 22); Console.Write("╚═══════════════════════════════════════════════════════════════════════════╝");
                 Console.SetCursorPosition(48, 21);
                 ConsoleKeyInfo kt = Console.ReadKey();
                 
-                switch (kt.Key)
+                switch (kt.KeyChar)
                 {
-                    case ConsoleKey.F1:
+                    case '1':
                         GDSanPham GDSP = new GDSanPham();
                         GDSP.Menusp();
                         break;
-                    case ConsoleKey.F2:
+                    case '2':
                         GDKhachHang GDKH = new GDKhachHang();
                         GDKH.Menukh();
                         break;
-                    case ConsoleKey.F5:                       
+                    case '5':                       
                         Program.Modau(); 
                         break;
                 }

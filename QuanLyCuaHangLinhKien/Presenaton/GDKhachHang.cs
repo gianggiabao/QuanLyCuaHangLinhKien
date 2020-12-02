@@ -33,12 +33,12 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.Clear();
             Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(13, 6); Console.WriteLine("║                                 Hiện Thông Tin Khách Hàng                               ║");
-            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(13, 8); Console.WriteLine("║       Ngày Giờ     ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
-            Console.SetCursorPosition(13, 9); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
+            Console.SetCursorPosition(13, 7); Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
+            Console.SetCursorPosition(13, 8); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
+            Console.SetCursorPosition(13, 9); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
             List<Khachhang> List = KH.GetAllKhachHang();
             foreach (var kh in List)
-            Console.WriteLine("\t      " + kh.Ngaygiokh + " ║   " + kh.Makh + "\t║    " + kh.Tenkh + "\t║    " + kh.Diachi + "\t║    " + kh.SDT);
+            Console.WriteLine("\t     ║" + kh.Ngaygiokh + "║   " + kh.Makh + "\t║    " + kh.Tenkh + "\t║    " + kh.Diachi + "\t║    " + kh.SDT);
             Console.SetCursorPosition(13, 18); Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
             Console.SetCursorPosition(15, 20); Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
         }
@@ -102,6 +102,39 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.ReadKey();
             }
         }
+        public void Timkiem()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(13, 6); Console.WriteLine("║                             Tìm Kiếm Thông Tin Khách Hàng                               ║");
+            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
+            IKhachHangBLL sp = new KhachHangBLL();
+            List<Khachhang> list = sp.TimKhachHang(new Khachhang());
+            string matim;
+            Console.SetCursorPosition(13, 8);Console.Write("║ Nhập mã khách hàng cần tìm:                                                             ║");
+            Console.SetCursorPosition(43, 8);
+            matim = Console.ReadLine();
+            int i;
+            for (i = 0; i < list.Count; ++i)
+                if (matim == list[i].Makh) break;
+            if (i < list.Count)
+            {
+                Console.SetCursorPosition(13, 9);  Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
+                Console.SetCursorPosition(13, 10); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
+                Console.SetCursorPosition(13, 11); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
+                Console.WriteLine("\t     ║" + list[i].Ngaygiokh + "║   " + list[i].Makh + "\t║    " + list[i].Tenkh + "\t║    " + list[i].Diachi + "\t║    " + list[i].SDT);
+                Console.SetCursorPosition(13, 13); Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(15, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.SetCursorPosition(15, 11); Console.Write("Không tồn tại mã sản phẩm nay....");
+                Console.SetCursorPosition(13, 15); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(51, 11);
+                Console.ReadKey();
+            }
+        }
         public void Menukh()
         {
             do
@@ -111,43 +144,50 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 6); Console.Write("║                         CHƯƠNG TRÌNH QUẢN LÝ CỦA HÀNG                     ║");
                 Console.SetCursorPosition(20, 7); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 8); Console.Write("║                          QUẢN LÝ THÔNG TIN KHÁCH HÀNG                     ║");
-                Console.SetCursorPosition(20, 9); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 10);Console.Write("║    F1    ║            Thêm thông tin khách hàng                           ║");
-                Console.SetCursorPosition(20, 11);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 12);Console.Write("║    F2    ║            Sửa thông tin khách hàng                            ║");
-                Console.SetCursorPosition(20, 13);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 14);Console.Write("║    F3    ║            Xóa thông tin khách hàng                            ║");
-                Console.SetCursorPosition(20, 15);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 16);Console.Write("║    F4    ║            Hiện thông tin khách hàng                           ║");
-                Console.SetCursorPosition(20, 17);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 18);Console.Write("║    F5    ║            Quay lại MENU                                       ║");
-                Console.SetCursorPosition(20, 19);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 20);Console.Write("║  Mời bạn chọn chức năng :                                                 ║");
-                Console.SetCursorPosition(20, 21);Console.Write("╚═══════════════════════════════════════════════════════════════════════════╝");
-                Console.SetCursorPosition(48, 20);
+                Console.SetCursorPosition(20, 9); Console.Write("╠══════════╦════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 10);Console.Write("║     1    ║            Thêm thông tin khách hàng                           ║");
+                Console.SetCursorPosition(20, 11);Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 12);Console.Write("║     2    ║            Sửa thông tin khách hàng                            ║");
+                Console.SetCursorPosition(20, 13);Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 14);Console.Write("║     3    ║            Xóa thông tin khách hàng                            ║");
+                Console.SetCursorPosition(20, 15);Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 16);Console.Write("║     4    ║            Tìm kiếm thông tin khách hàng                       ║");
+                Console.SetCursorPosition(20, 17);Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 18);Console.Write("║     5    ║            Hiện thông tin khách hàng                           ║");
+                Console.SetCursorPosition(20, 19);Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 20);Console.Write("║     6    ║            Quay lại MENU                                       ║");
+                Console.SetCursorPosition(20, 21);Console.Write("╠══════════╩════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 22);Console.Write("║  Mời bạn chọn chức năng :                                                 ║");
+                Console.SetCursorPosition(20, 23);Console.Write("╚═══════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(48, 22);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                switch (kt.Key)
+                switch (kt.KeyChar)
                 {
-                    case ConsoleKey.F1:
+                    case '1':
                         Nhap();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F2:
+                    case '2':
                         Sua();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F3:
+                    case '3':
                         Xoa();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F4:
+                    case '4':
+                        Timkiem();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F5:
+                    case '5':
+                        Hien();
+                        Console.ReadKey();
+                        break;
+                    case '6':
                         GiaoDien t = new GiaoDien();
                         t.Menu();
                         break;

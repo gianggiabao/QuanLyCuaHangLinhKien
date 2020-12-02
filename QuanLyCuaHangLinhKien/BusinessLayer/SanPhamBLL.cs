@@ -58,27 +58,15 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
         {
             List<SanPham> list = GetAllSanPham();
             List<SanPham> kq = new List<SanPham>();
-            if (string.IsNullOrEmpty(sp.Masp) &&
-                string.IsNullOrEmpty(sp.Tensp) &&
-                sp.Gia == 0)
+            if (string.IsNullOrEmpty(sp.Masp) && string.IsNullOrEmpty(sp.Tensp) && sp.Gia == 0 && sp.Soluong == 0) 
             {
                 kq = list;
-            }
-            //Tim theo ten sp
-            if (!string.IsNullOrEmpty(sp.Tensp))
+            }        
+            //Tim theo mã
+            else if (sp.Masp!="")
             {
                 for (int i = 0; i < list.Count; ++i)
-                    if (list[i].Tensp.IndexOf(sp.Tensp) >= 0)
-                    {
-                        kq.Add(new SanPham(list[i]));
-                    }
-            }
-
-            //Tim theo gia
-            else if (sp.Gia > 0)
-            {
-                for (int i = 0; i < list.Count; ++i)
-                    if (list[i].Gia == sp.Gia)
+                    if (list[i].Masp == sp.Masp)
                     {
                         kq.Add(new SanPham(list[i]));
                     }

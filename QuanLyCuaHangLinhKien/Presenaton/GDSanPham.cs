@@ -33,12 +33,12 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.Clear();
             Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(13, 6); Console.WriteLine("║                                  Hiện Thông Tin Sản Phẩm                                ║");
-            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
+            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═══════════════════════════╦═══════════════╦═══════════════╦═══════════════╦═════════════╣");
             Console.SetCursorPosition(13, 8); Console.WriteLine("║         Ngày Giờ          ║  Mã Sản Phẩm  ║ Tên Sản Phẩm  ║    Giá Bán    ║  Số Lượng   ║");
-            Console.SetCursorPosition(13, 9); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");        
+            Console.SetCursorPosition(13, 9); Console.WriteLine("╠═══════════════════════════╬═══════════════╬═══════════════╬═══════════════╬═════════════╣");        
             List<SanPham> List = SP.GetAllSanPham();
             foreach (var sp in List)
-            Console.WriteLine("\t      " + sp.Ngaygio+ "\t ║      " + sp.Masp + "\t ║     " + sp.Tensp + "\t ║     " + sp.Gia + "\t ║     " + sp.Soluong);
+            Console.WriteLine("\t     ║ " + sp.Ngaygio+ "\t ║      " + sp.Masp + "\t ║     " + sp.Tensp + "\t ║     " + sp.Gia + "\t ║     " + sp.Soluong);
             Console.SetCursorPosition(13, 18);Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
             Console.SetCursorPosition(15, 20);Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
         }
@@ -105,27 +105,35 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Timkiem()
         {
             Console.Clear();         
-            Console.SetCursorPosition(25, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(25, 6); Console.WriteLine("║                             Tìm Kiếm Sản Phẩm                             ║");
-            Console.SetCursorPosition(25, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(25, 15);Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
-            List<SanPham> list = SP.GetAllSanPham();
+            Console.SetCursorPosition(20, 5); Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(20, 6); Console.WriteLine("║                                 Tìm Kiếm Sản Phẩm                                  ║");
+            Console.SetCursorPosition(20, 7); Console.WriteLine("╠════════════════════════════════════════════════════════════════════════════════════╣");                                 
+            ISanPhamBLL sp = new SanPhamBLL();
+            List<SanPham> list = sp.TimSanPham(new SanPham());
             string matim;
-            Console.SetCursorPosition(27, 9); Console.Write("Nhập Giá Cần Tìm:");
+            Console.SetCursorPosition(20, 8); Console.Write("║ Nhập mã sản phẩm cần tìm:                                                          ║");
+            Console.SetCursorPosition(48,8);
             matim = Console.ReadLine();
             int i;
-            for (i = 0; i < list.Count; ++i)
-                if (list[i].Masp == matim) break;
+            for ( i=0; i < list.Count; ++i)
+                if (matim == list[i].Masp) break;
             if (i < list.Count)
             {
-                 SanPham sp = new SanPham(list[i]);
-                 SP.TimSanPham(sp);
+                Console.SetCursorPosition(20, 9);  Console.WriteLine("╠═══════════════════════╦═════════════╦═══════════════╦═══════════════╦══════════════╣");
+                Console.SetCursorPosition(20, 10); Console.WriteLine("║        Ngày Giờ       ║ Mã Sản Phẩm ║ Tên Sản Phẩm  ║    Giá Bán    ║   Số Lượng   ║");
+                Console.SetCursorPosition(20, 11); Console.WriteLine("╠═══════════════════════╬═════════════╬═══════════════╬═══════════════╬══════════════╣");
+                Console.SetCursorPosition(20, 12); Console.WriteLine("║ " + list[i].Ngaygio + "  ║   " + list[i].Masp + "\t  ║    " + list[i].Tensp + "\t  ║    " + list[i].Gia + "\t  ║    " + list[i].Soluong);
+                Console.SetCursorPosition(20, 13); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(22, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
+                Console.ReadKey();
             }
             else
             {
-                Console.SetCursorPosition(27, 11); Console.Write("Không tồn tại giá sản phẩm này.....");
+                Console.SetCursorPosition(22,11); Console.Write("Không tồn tại mã sản phẩm nay....");            
+                Console.SetCursorPosition(20, 15); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(55, 11);
                 Console.ReadKey();
-            }
+            }        
         }
         public void Menusp()
         {
@@ -135,51 +143,51 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 5);  Console.Write("╔═══════════════════════════════════════════════════════════════════════════╗");
                 Console.SetCursorPosition(20, 6);  Console.Write("║                         CHƯƠNG TRÌNH QUẢN LÝ CỦA HÀNG                     ║");
                 Console.SetCursorPosition(20, 7);  Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 8);  Console.Write("║                           QUẢN LÝ THÔNG TIN SẢN PHẨM                      ║");
-                Console.SetCursorPosition(20, 9);  Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 10); Console.Write("║    F1    ║            Thêm thông tin sản phẩm                             ║");
-                Console.SetCursorPosition(20, 11); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 12); Console.Write("║    F2    ║            Sửa thông tin sản phẩm                              ║");
-                Console.SetCursorPosition(20, 13); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 14); Console.Write("║    F3    ║            Xóa thông tin sản phẩm                              ║");
-                Console.SetCursorPosition(20, 15); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 16); Console.Write("║    F4    ║            Hiện thông tin sản phẩm                             ║");
-                Console.SetCursorPosition(20, 17); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 18); Console.Write("║    F5    ║            Tìm Kiếm thông tin sản phẩm                         ║");
-                Console.SetCursorPosition(20, 19); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 20); Console.Write("║    F6    ║            Quay lại MENU                                       ║");
-                Console.SetCursorPosition(20, 21); Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 8);  Console.Write("║                          QUẢN LÝ THÔNG TIN SẢN PHẨM                       ║");
+                Console.SetCursorPosition(20, 9);  Console.Write("╠══════════╦════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 10); Console.Write("║     1    ║            Thêm thông tin sản phẩm                             ║");
+                Console.SetCursorPosition(20, 11); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 12); Console.Write("║     2    ║            Sửa thông tin sản phẩm                              ║");
+                Console.SetCursorPosition(20, 13); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 14); Console.Write("║     3    ║            Xóa thông tin sản phẩm                              ║");
+                Console.SetCursorPosition(20, 15); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 16); Console.Write("║     4    ║            Hiện thông tin sản phẩm                             ║");
+                Console.SetCursorPosition(20, 17); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 18); Console.Write("║     5    ║            Tìm Kiếm thông tin sản phẩm                         ║");
+                Console.SetCursorPosition(20, 19); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
+                Console.SetCursorPosition(20, 20); Console.Write("║     6    ║            Quay lại MENU                                       ║");
+                Console.SetCursorPosition(20, 21); Console.Write("╠══════════╩════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 22); Console.Write("║  Mời bạn chọn chức năng :                                                 ║");
                 Console.SetCursorPosition(20, 23); Console.Write("╚═══════════════════════════════════════════════════════════════════════════╝");
                 Console.SetCursorPosition(48, 22);
                 ConsoleKeyInfo kt = Console.ReadKey();
-                switch(kt.Key)
+                switch(kt.KeyChar)
                 {
-                    case ConsoleKey.F1:                       
+                    case '1':                      
                         Nhap();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F2:                          
+                    case '2':                          
                         Sua(); 
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F3:
+                    case '3':
                         Xoa();
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F4:                       
+                    case '4':                       
                         Hien();
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F5:
+                    case '5':
                         Timkiem();
                         Hien();                   
                         Console.ReadKey();
                         break;
-                    case ConsoleKey.F6:
+                    case '6':
                         GiaoDien t = new GiaoDien();
                         t.Menu();
                         break;

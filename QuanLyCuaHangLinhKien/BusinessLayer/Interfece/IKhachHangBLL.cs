@@ -12,5 +12,6 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
         void ThemKhachHang(Khachhang kh);
         void XoaKhachHang(string Makh);
         void SuaKhachHang(Khachhang kh);
+        List<Khachhang> TimKhachHang(Khachhang kh);
     }
 }

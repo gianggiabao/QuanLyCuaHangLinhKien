@@ -52,5 +52,25 @@ namespace QuanLyCuaHangLinhKien.BusinessLayer
             else
                 throw new Exception("khong ton tai ma nay");
         }
+        public List<Khachhang> TimKhachHang(Khachhang kh)
+        {
+            List<Khachhang> list = GetAllKhachHang();
+            List<Khachhang> kq = new List<Khachhang>();
+            if (string.IsNullOrEmpty(kh.Makh) && string.IsNullOrEmpty(kh.Tenkh) && string.IsNullOrEmpty(kh.Diachi) && string.IsNullOrEmpty(kh.SDT))
+            {
+                kq = list;
+            }
+            //Tim theo mã
+            else if (kh.Makh != "")
+            {
+                for (int i = 0; i < list.Count; ++i)
+                    if (list[i].Makh == kh.Makh)
+                    {
+                        kq.Add(new Khachhang(list[i]));
+                    }
+            }
+            else kq = null;
+            return kq;
+        }
     }
 }
