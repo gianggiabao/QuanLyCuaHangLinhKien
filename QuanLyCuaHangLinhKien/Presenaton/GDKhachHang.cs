@@ -120,7 +120,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 15);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 16);Console.Write("║    F4    ║            Hiện thông tin khách hàng                           ║");
                 Console.SetCursorPosition(20, 17);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 18);Console.Write("║    F6    ║            Quay lại MENU                                       ║");
+                Console.SetCursorPosition(20, 18);Console.Write("║    F5    ║            Quay lại MENU                                       ║");
                 Console.SetCursorPosition(20, 19);Console.Write("╠═══════════════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 20);Console.Write("║  Mời bạn chọn chức năng :                                                 ║");
                 Console.SetCursorPosition(20, 21);Console.Write("╚═══════════════════════════════════════════════════════════════════════════╝");

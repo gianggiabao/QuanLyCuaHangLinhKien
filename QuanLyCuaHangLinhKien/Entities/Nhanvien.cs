@@ -8,10 +8,16 @@ namespace QuanLyCuaHangLinhKien.Entities
 {
    public class Nhanvien
     {
+        private DateTime ngaygio;
         private string tennv;
         private string quequan;
         private string manv;
         private string sdt;
+       
+        public DateTime Ngaygio
+        {
+            get { return ngaygio; }
+        }
         public string Tennv
         {
             get { return tennv; }
@@ -50,17 +56,19 @@ namespace QuanLyCuaHangLinhKien.Entities
         }
         public Nhanvien()
         {
-
+            ngaygio = DateTime.Now;
         }
         public Nhanvien(Nhanvien NV)
         {
+            this.ngaygio = NV.ngaygio;
             this.tennv = NV.tennv;
             this.manv = NV.manv;
             this.quequan = NV.quequan;
             this.sdt =NV.sdt;
         }
-        public Nhanvien(string tennv,string manv,string quequan,string sdt)
+        public Nhanvien(string tennv,string manv,string quequan,string sdt,DateTime ngaygio)
         {
+            this.ngaygio = ngaygio;
             this.tennv = tennv;
             this.manv = manv;
             this.quequan = quequan;
