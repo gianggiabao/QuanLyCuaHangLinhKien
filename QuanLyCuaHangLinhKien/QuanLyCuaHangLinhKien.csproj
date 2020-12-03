@@ -45,18 +45,23 @@
   <ItemGroup>
     <Compile Include="BusinessLayer\Interfece\IKhachHangBLL.cs" />
     <Compile Include="BusinessLayer\Interfece\ILinhkienBLL.cs" />
+    <Compile Include="BusinessLayer\Interfece\INhanvienBLL.cs" />
     <Compile Include="BusinessLayer\KhachHangBLL.cs" />
     <Compile Include="BusinessLayer\LinhkienBLL.cs" />
+    <Compile Include="BusinessLayer\NhanvienBLL.cs" />
     <Compile Include="DataAccessLayer\Interface\IKhachHangDAL.cs" />
     <Compile Include="DataAccessLayer\Interface\ILinhkienDAL.cs" />
+    <Compile Include="DataAccessLayer\Interface\INhanvienDAL.cs" />
     <Compile Include="DataAccessLayer\KhachHangDAL.cs" />
     <Compile Include="DataAccessLayer\LinhkienDAL.cs" />
+    <Compile Include="DataAccessLayer\NhanvienDAL.cs" />
     <Compile Include="Entities\Hoadon.cs" />
     <Compile Include="Entities\Khachhang.cs" />
     <Compile Include="Entities\Nhanvien.cs" />
     <Compile Include="Entities\Linh Kien.cs" />
     <Compile Include="Presenaton\GDKhachHang.cs" />
     <Compile Include="Presenaton\GDLinhkien.cs" />
+    <Compile Include="Presenaton\GDNhanvien.cs" />
     <Compile Include="Presenaton\GiaoDien.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

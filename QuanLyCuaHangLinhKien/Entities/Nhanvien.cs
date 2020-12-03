@@ -10,9 +10,11 @@ namespace QuanLyCuaHangLinhKien.Entities
     {
         private DateTime ngaygio;
         private string tennv;
-        private string quequan;
+        private string diachi;
         private string manv;
         private string sdt;
+        private int songaylamviec;
+        private double hesoluong;
        
         public DateTime Ngaygio
         {
@@ -27,13 +29,13 @@ namespace QuanLyCuaHangLinhKien.Entities
                     tennv = value;
             }
         }
-        public string Quequan
+        public string Diachi
         {
-            get { return quequan; }
+            get { return diachi; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    quequan = value;
+                    diachi = value;
             }
         }
         public string Manv
@@ -41,7 +43,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return manv; }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value)&& manv.Length<=4)
                     manv = value;
             }
         }
@@ -50,29 +52,51 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return sdt; }
             set
             {
-                if (!string.IsNullOrEmpty(value)&&value.Length==10)
+                if (!string.IsNullOrEmpty(value)&&value.Length<=10)
                     sdt = value;
+            }
+        }
+        public int SNLV
+        {
+            get { return songaylamviec; }
+            set
+            {
+                if (songaylamviec > 0 && songaylamviec < 30)
+                    songaylamviec = value;
+            }
+        }
+        public double HSL
+        {
+            get { return hesoluong; }
+            set
+            {
+                if (hesoluong > 0)
+                    hesoluong = value;
             }
         }
         public Nhanvien()
         {
             ngaygio = DateTime.Now;
         }
-        public Nhanvien(Nhanvien NV)
+        public Nhanvien(Nhanvien nv)
         {
-            this.ngaygio = NV.ngaygio;
-            this.tennv = NV.tennv;
-            this.manv = NV.manv;
-            this.quequan = NV.quequan;
-            this.sdt =NV.sdt;
+            this.ngaygio = nv.ngaygio;
+            this.tennv = nv.tennv;
+            this.manv = nv.manv;
+            this.diachi = nv.diachi;
+            this.sdt =nv.sdt;
+            this.songaylamviec = nv.songaylamviec;
+            this.hesoluong = nv.hesoluong;
         }
-        public Nhanvien(string tennv,string manv,string quequan,string sdt,DateTime ngaygio)
+        public Nhanvien(DateTime ngaygio,string manv,string tennv,string diachi,string sdt,int songaylamviec,double hesoluong)
         {
             this.ngaygio = ngaygio;
-            this.tennv = tennv;
             this.manv = manv;
-            this.quequan = quequan;
+            this.tennv = tennv;
+            this.diachi = diachi;
             this.sdt = sdt;
+            this.songaylamviec = songaylamviec;
+            this.hesoluong = hesoluong;
         }
     }
 }
