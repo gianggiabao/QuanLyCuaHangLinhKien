@@ -31,16 +31,16 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Hien()
         {
             Console.Clear();
-            Console.SetCursorPosition(13, 5); Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(13, 6); Console.WriteLine("║                                 Hiện Thông Tin Khách Hàng                                ║");
-            Console.SetCursorPosition(13, 7); Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦═══════════════╣");
-            Console.SetCursorPosition(13, 8); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT       ║");
-            Console.SetCursorPosition(13, 9); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬═══════════════╣");
+            Console.SetCursorPosition(13, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(13, 6); Console.WriteLine("║                                 Hiện Thông Tin Khách Hàng                                 ║");
+            Console.SetCursorPosition(13, 7); Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦════════════════╣");
+            Console.SetCursorPosition(13, 8); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║      SĐT       ║");
+            Console.SetCursorPosition(13, 9); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬════════════════╣");
             List<Khachhang> List = KH.GetAllKhachHang();
             foreach (var kh in List)
-            Console.WriteLine("\t     ║" + kh.Ngaygiokh + "║   " + kh.Makh + "\t║    " + kh.Tenkh + "\t║    " + kh.Diachi + "\t║    " + kh.SDT+ "\t║");
-            Console.WriteLine("             ╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩═══════════════╝");
-            Console.Write("             Nhập Phím Bất Kỳ Để Tiếp Tục...");
+            Console.WriteLine("\t     ║" + kh.Ngaygiokh + "║   " + kh.Makh + "\t║    " + kh.Tenkh + "\t║    " + kh.Diachi + "\t║   " + kh.SDT+ "\t ║");
+            Console.WriteLine("             ╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩════════════════╝");
+            Console.Write("              Nhập Phím Bất Kỳ Để Tiếp Tục...");
         }
         public void Sua()
         {
@@ -122,8 +122,8 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(13, 9);  Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
                 Console.SetCursorPosition(13, 10); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
                 Console.SetCursorPosition(13, 11); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
-                Console.WriteLine("\t     ║" + list[i].Ngaygiokh + "║   " + list[i].Makh + "\t║    " + list[i].Tenkh + "\t║    " + list[i].Diachi + "\t║    " + list[i].SDT);
-                Console.SetCursorPosition(13, 13); Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.WriteLine("\t     ║" + list[i].Ngaygiokh + "║   " + list[i].Makh + "\t║    " + list[i].Tenkh + "\t║    " + list[i].Diachi + "\t║  " + list[i].SDT+ "  ║");
+                Console.SetCursorPosition(13, 13); Console.WriteLine("╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩══════════════╝");
                 Console.SetCursorPosition(15, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
                 Console.ReadKey();
             }

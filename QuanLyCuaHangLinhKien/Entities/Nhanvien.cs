@@ -80,7 +80,7 @@ namespace QuanLyCuaHangLinhKien.Entities
         }
         public Nhanvien()
         {
-            ngaygio = DateTime.Now;
+            ngaygio = DateTime.Now;        
         }
         public Nhanvien(Nhanvien nv)
         {
