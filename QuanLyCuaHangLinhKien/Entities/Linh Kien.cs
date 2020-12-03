@@ -6,33 +6,33 @@ using System.Threading.Tasks;
 
 namespace QuanLyCuaHangLinhKien.Entities
 {
-   public class SanPham
+   public class Linhkien
     {
         private DateTime ngaygio;
-        private string tensp;
-        private string masp;
+        private string tenlk;
+        private string malk;
         private int gia;
         private int soluong;  
         public DateTime Ngaygio
         {
             get { return ngaygio; }
         }
-        public string Tensp
+        public string Tenlk
         {
-            get { return tensp; }
+            get { return tenlk; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    tensp = value;
+                    tenlk = value;
             }
         }
-        public string Masp
+        public string Malk
         {
-            get { return masp; }
+            get { return malk; }
             set
             {
-                if (!string.IsNullOrEmpty(value))
-                    masp = value;
+                if (!string.IsNullOrEmpty(value)&& value.Length<=4)
+                    malk = value;
             }
         }
         public int Gia
@@ -53,24 +53,24 @@ namespace QuanLyCuaHangLinhKien.Entities
                     soluong = value;
             }
         }
-        public SanPham()
+        public Linhkien()
         {
             ngaygio = DateTime.Now;
         }
         //Phương thức thiết lập sao chép
-        public SanPham(SanPham sp)
+        public Linhkien(Linhkien sp)
         {
             this.ngaygio = sp.ngaygio;
-            this.masp = sp.masp;
-            this.tensp = sp.tensp;
+            this.malk = sp.malk;
+            this.tenlk = sp.tenlk;
             this.gia = sp.gia;
             this.soluong = sp.soluong;
         }
-        public SanPham(DateTime ngaygio,string masp, string tensp, int gia,int soluong)
+        public Linhkien(DateTime ngaygio,string malk, string tenlk, int gia,int soluong)
         {
             this.ngaygio = ngaygio;
-            this.masp= masp;
-            this.tensp = tensp;
+            this.malk= malk;
+            this.tenlk = tenlk;
             this.gia = gia;
             this.soluong = soluong;
         }

@@ -7,11 +7,11 @@ using QuanLyCuaHangLinhKien.Entities;
 
 namespace QuanLyCuaHangLinhKien.DataAccessLayer
 {
-    public interface ISanPhamDAL
+    public interface ILinhkienDAL
     {
-        List<SanPham> GetAllSanPham();
-        void ThemSanPham(SanPham sp);
-        void Update(List<SanPham> list);
+        List<Linhkien> GetAllLinhkien();
+        void ThemLinhkien(Linhkien sp);
+        void Update(List<Linhkien> list);
      
     }
       

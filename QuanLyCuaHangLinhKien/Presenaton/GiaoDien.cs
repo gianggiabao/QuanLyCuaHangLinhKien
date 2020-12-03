@@ -38,7 +38,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 switch (kt.KeyChar)
                 {
                     case '1':
-                        GDSanPham GDSP = new GDSanPham();
+                        GDLinhkien GDSP = new GDLinhkien();
                         GDSP.Menusp();
                         break;
                     case '2':

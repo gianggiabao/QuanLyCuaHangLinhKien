@@ -22,7 +22,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return makh; }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value)&& value.Length<=4)
                     makh = value;
             }
         }
@@ -49,7 +49,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return sdt; }
             set
             {
-                if (!string.IsNullOrEmpty(value)) 
+                if (!string.IsNullOrEmpty(value)&& value.Length<=10) 
                     sdt = value;
             }
         }

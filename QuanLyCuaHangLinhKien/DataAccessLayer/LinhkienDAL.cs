@@ -7,12 +7,12 @@ using QuanLyCuaHangLinhKien.Entities;
 using System.IO;
 namespace QuanLyCuaHangLinhKien.DataAccessLayer
 {
-    class SanphamDAL : ISanPhamDAL
+    class LinhkienDAL : ILinhkienDAL
     {
-        private string Txtfile = "Data/Sanpham.txt";
-        public List<SanPham> GetAllSanPham()
+        private string Txtfile = "Data/Linhkien.txt";
+        public List<Linhkien> GetAllLinhkien()
         {
-            List<SanPham> list = new List<SanPham>();
+            List<Linhkien> list = new List<Linhkien>();
             StreamReader fread = File.OpenText(Txtfile);
             string s = fread.ReadLine();
             while (s != null)
@@ -20,7 +20,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
                 if (s != "")
                 {
                     string[] a = s.Split('#');
-                    list.Add(new SanPham(DateTime.Parse(a[0]),a[1], a[2], int.Parse(a[3]), int.Parse(a[4]))); 
+                    list.Add(new Linhkien(DateTime.Parse(a[0]),a[1], a[2], int.Parse(a[3]), int.Parse(a[4]))); 
                 }
                 s = fread.ReadLine();
             }
@@ -28,21 +28,19 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
             return list;
         }
         //Chèn một bản ghi học sinh vào tệp
-        public void ThemSanPham(SanPham sp)
+        public void ThemLinhkien(Linhkien lk)
         {   StreamWriter fwrite = File.AppendText(Txtfile);
             fwrite.WriteLine();
-            fwrite.Write(sp.Ngaygio+"#"+sp.Masp+ "#" + sp.Tensp + "#" + sp.Gia+"#"+sp.Soluong);
+            fwrite.Write(lk.Ngaygio+"#"+lk.Malk+ "#" + lk.Tenlk + "#" + lk.Gia+"#"+lk.Soluong);
             fwrite.Close();
         }
         //Cập nhật lại danh sách vào tệp        
-        public void Update(List<SanPham> list)
+        public void Update(List<Linhkien> list)
         {
             StreamWriter fwrite = File.CreateText(Txtfile);
             for (int i = 0; i < list.Count; ++i)
-                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Masp + "#" + list[i].Tensp + "#" + list[i].Gia+"#"+list[i].Soluong );
+                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Malk + "#" + list[i].Tenlk + "#" + list[i].Gia+"#"+list[i].Soluong );
             fwrite.Close();
-        }
-        // Xóa một sản phẩm khi biết mã      
-      
+        }    
     }
 }
