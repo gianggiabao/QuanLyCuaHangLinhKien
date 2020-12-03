@@ -38,12 +38,16 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 switch (kt.KeyChar)
                 {
                     case '1':
-                        GDLinhkien GDSP = new GDLinhkien();
-                        GDSP.Menusp();
+                        GDLinhkien G1 = new GDLinhkien();
+                        G1.Menusp();
                         break;
                     case '2':
-                        GDKhachHang GDKH = new GDKhachHang();
-                        GDKH.Menukh();
+                        GDKhachHang G2 = new GDKhachHang();
+                        G2.Menukh();
+                        break;
+                    case '3':
+                        GDNhanvien G3 = new GDNhanvien();
+                        G3.Menunv();
                         break;
                     case '5':                       
                         Program.Modau(); 

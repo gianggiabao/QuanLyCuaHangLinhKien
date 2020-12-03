@@ -20,7 +20,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
                 if (s != "")
                 {
                     string[] a = s.Split('#');
-                    list.Add(new Linhkien(DateTime.Parse(a[0]),a[1], a[2], int.Parse(a[3]), int.Parse(a[4]))); 
+                    list.Add(new Linhkien(DateTime.Parse(a[0]),a[1], a[2], double.Parse(a[3]), int.Parse(a[4]), double.Parse(a[5]))); 
                 }
                 s = fread.ReadLine();
             }
@@ -31,7 +31,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
         public void ThemLinhkien(Linhkien lk)
         {   StreamWriter fwrite = File.AppendText(Txtfile);
             fwrite.WriteLine();
-            fwrite.Write(lk.Ngaygio+"#"+lk.Malk+ "#" + lk.Tenlk + "#" + lk.Gia+"#"+lk.Soluong);
+            fwrite.Write(lk.Ngaygio+"#"+lk.Malk+ "#" + lk.Tenlk + "#" + lk.Gia+"#"+lk.Soluong+"#"+lk.Tinhtien);
             fwrite.Close();
         }
         //Cập nhật lại danh sách vào tệp        
@@ -39,7 +39,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
         {
             StreamWriter fwrite = File.CreateText(Txtfile);
             for (int i = 0; i < list.Count; ++i)
-                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Malk + "#" + list[i].Tenlk + "#" + list[i].Gia+"#"+list[i].Soluong );
+                fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Malk + "#" + list[i].Tenlk + "#" + list[i].Gia+"#"+list[i].Soluong+ "#" + list[i].Tinhtien);
             fwrite.Close();
         }    
     }

@@ -15,7 +15,7 @@ namespace QuanLyCuaHangLinhKien.Entities
         private string sdt;
         private int songaylamviec;
         private double hesoluong;
-       
+        private double tinhluong;
         public DateTime Ngaygio
         {
             get { return ngaygio; }
@@ -43,7 +43,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return manv; }
             set
             {
-                if (!string.IsNullOrEmpty(value)&& manv.Length<=4)
+                if (!string.IsNullOrEmpty(value)&& value.Length<=4)
                     manv = value;
             }
         }
@@ -61,7 +61,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return songaylamviec; }
             set
             {
-                if (songaylamviec > 0 && songaylamviec < 30)
+                if (value > 0 && value <= 30)
                     songaylamviec = value;
             }
         }
@@ -70,9 +70,13 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return hesoluong; }
             set
             {
-                if (hesoluong > 0)
+                if (value > 0)
                     hesoluong = value;
             }
+        }
+        public double Tinhluong
+        {
+            get { return SNLV * HSL; }
         }
         public Nhanvien()
         {
@@ -87,8 +91,9 @@ namespace QuanLyCuaHangLinhKien.Entities
             this.sdt =nv.sdt;
             this.songaylamviec = nv.songaylamviec;
             this.hesoluong = nv.hesoluong;
+            this.tinhluong = nv.tinhluong;
         }
-        public Nhanvien(DateTime ngaygio,string manv,string tennv,string diachi,string sdt,int songaylamviec,double hesoluong)
+        public Nhanvien(DateTime ngaygio,string manv,string tennv,string diachi,string sdt,int songaylamviec,double hesoluong,double tinhluong)
         {
             this.ngaygio = ngaygio;
             this.manv = manv;
@@ -97,6 +102,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             this.sdt = sdt;
             this.songaylamviec = songaylamviec;
             this.hesoluong = hesoluong;
+            this.tinhluong = tinhluong;
         }
     }
 }

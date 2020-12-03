@@ -23,7 +23,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(27, 10); Console.Write("Nhập Tên Linh Kiện: ");
             lk.Tenlk = Console.ReadLine();
             Console.SetCursorPosition(27, 12); Console.Write("Nhập Giá Linh Kiện: ");
-            lk.Gia = int.Parse(Console.ReadLine());
+            lk.Gia = double.Parse(Console.ReadLine());
             Console.SetCursorPosition(27, 14); Console.Write("Nhập Số Lượng Linh Kiện: ");
             lk.Soluong = int.Parse(Console.ReadLine());           
             LK.ThemLinhkien(lk); 
@@ -31,16 +31,17 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Hien()
         {
             Console.Clear();
-            Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(13, 6); Console.WriteLine("║                                  Hiện Thông Tin Linh Kiện                               ║");
-            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═══════════════════════════╦═══════════════╦═══════════════╦═══════════════╦═════════════╣");
-            Console.SetCursorPosition(13, 8); Console.WriteLine("║         Ngày Giờ          ║  Mã Linh Kiện ║ Tên Linh Kiện ║    Giá Bán    ║  Số Lượng   ║");
-            Console.SetCursorPosition(13, 9); Console.WriteLine("╠═══════════════════════════╬═══════════════╬═══════════════╬═══════════════╬═════════════╣");        
+            Console.SetCursorPosition(9, 5); Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(9, 6); Console.WriteLine("║                                  Hiện Thông Tin Linh Kiện                                            ║");
+            Console.SetCursorPosition(9, 7); Console.WriteLine("╠═══════════════════════╦═══════════════╦═══════════════╦═══════════════╦══════════════╦═══════════════╣");
+            Console.SetCursorPosition(9, 8); Console.WriteLine("║        Ngày Giờ       ║ Mã Linh Kiện  ║ Tên Linh Kiện ║    Giá Bán    ║   Số Lượng   ║      Tiền     ║");
+            Console.SetCursorPosition(9, 9); Console.WriteLine("╠═══════════════════════╬═══════════════╬═══════════════╬═══════════════╬══════════════╬═══════════════╣");                      
             List<Linhkien> List = LK.GetAllLinhkien();
             foreach (var lk in List)
-            Console.WriteLine("\t     ║ " + lk.Ngaygio+ "\t ║      " + lk.Malk + "\t ║     " + lk.Tenlk + "\t ║     " + lk.Gia + "\t ║     " + lk.Soluong);
-            Console.SetCursorPosition(13, 18);Console.WriteLine("╚═════════════════════════════════════════════════════════════════════════════════════════╝");
-            Console.SetCursorPosition(15, 20);Console.Write("Nhập Phím Bất Kỳ Để Tiếp Tục...");
+            Console.WriteLine("\t ║ " + lk.Ngaygio + "\t ║      " + lk.Malk + "\t ║     " + lk.Tenlk + "\t ║     " + lk.Gia + "\t ║     " + lk.Soluong + "\t║    " + lk.Tinhtien+ "\t║");
+            Console.WriteLine("         ╚═══════════════════════╩═══════════════╩═══════════════╩═══════════════╩══════════════╩═══════════════╝");        
+            Console.Write("         Nhập Phím Bất Kỳ Để Tiếp Tục...");
+            
         }
         public void Sua()
         {
@@ -63,7 +64,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                     string ten = Console.ReadLine();
                     if (!string.IsNullOrEmpty(ten)) lk.Tenlk = ten;
                     Console.SetCursorPosition(27, 13); Console.Write("Nhập Giá Linh Kiện Mới :");
-                    int gia = int.Parse(Console.ReadLine());
+                    double gia = double.Parse(Console.ReadLine());
                     if (gia > 0) lk.Gia = gia;
                     Console.SetCursorPosition(27, 15); Console.Write("Nhập Số Lượng Linh Kiện Mới :");
                     int soluong = int.Parse(Console.ReadLine());
@@ -105,33 +106,33 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Timkiem()
         {
             Console.Clear();         
-            Console.SetCursorPosition(20, 5); Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(20, 6); Console.WriteLine("║                                 Tìm Kiếm Linh Kiện                                 ║");
-            Console.SetCursorPosition(20, 7); Console.WriteLine("╠════════════════════════════════════════════════════════════════════════════════════╣");
+            Console.SetCursorPosition(10, 5);      Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(10, 6);      Console.WriteLine("║                                         Tìm Kiếm Linh Kiện                                     ║");
+            Console.SetCursorPosition(10, 7);      Console.WriteLine("╠════════════════════════════════════════════════════════════════════════════════════════════════╣");
             ILinhkienBLL lk = new LinhkienBLL();
             List<Linhkien> list = lk.TimLinhkien(new Linhkien());
             string matim;
-            Console.SetCursorPosition(20, 8); Console.Write("║ Nhập mã Linh Kiện cần tìm:                                                         ║");
-            Console.SetCursorPosition(48,8);
+            Console.SetCursorPosition(10, 8);      Console.Write(    "║ Nhập mã Linh Kiện cần tìm:                                                                     ║");
+            Console.SetCursorPosition(38,8);
             matim = Console.ReadLine();
             int i;
             for ( i=0; i < list.Count; ++i)
                 if (matim == list[i].Malk) break;
             if (i < list.Count)
             {
-                Console.SetCursorPosition(20, 9);  Console.WriteLine("╠═══════════════════════╦═════════════╦═══════════════╦═══════════════╦══════════════╣");
-                Console.SetCursorPosition(20, 10); Console.WriteLine("║        Ngày Giờ       ║ Mã Linh Kiện║ Tên Linh Kiện ║    Giá Bán    ║   Số Lượng   ║");
-                Console.SetCursorPosition(20, 11); Console.WriteLine("╠═══════════════════════╬═════════════╬═══════════════╬═══════════════╬══════════════╣");
-                Console.SetCursorPosition(20, 12); Console.WriteLine("║ " + list[i].Ngaygio + "  ║   " + list[i].Malk + "\t  ║    " + list[i].Tenlk + "\t  ║    " + list[i].Gia + "\t  ║    " + list[i].Soluong);
-                Console.SetCursorPosition(20, 13); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
-                Console.SetCursorPosition(22, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
+                Console.SetCursorPosition(10, 9);  Console.WriteLine("╠═════════════════════════╦═════════════╦═══════════════╦═══════════════╦══════════════╦═════════╣");
+                Console.SetCursorPosition(10, 10); Console.WriteLine("║        Ngày Giờ         ║ Mã Linh Kiện║ Tên Linh Kiện ║    Giá Bán    ║   Số Lượng   ║  Tiền   ║");
+                Console.SetCursorPosition(10, 11); Console.WriteLine("╠═════════════════════════╬═════════════╬═══════════════╬═══════════════╬══════════════╬═════════╣");
+                Console.SetCursorPosition(10, 12); Console.WriteLine("║ " + list[i].Ngaygio + "    ║ " + list[i].Malk + "\t  ║    " + list[i].Tenlk + "\t  ║    " + list[i].Gia + "\t  ║    " + list[i].Soluong + "\t ║    " + list[i].Tinhtien);
+                Console.SetCursorPosition(10, 13); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(12, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
                 Console.ReadKey();
             }
             else
             {
-                Console.SetCursorPosition(22,11); Console.Write("Không tồn tại mã linh kiện nay....");            
-                Console.SetCursorPosition(20, 15); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝");
-                Console.SetCursorPosition(55, 11);
+                Console.SetCursorPosition(12,11); Console.Write("Không tồn tại mã linh kiện nay....");            
+                Console.SetCursorPosition(10, 15); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(45, 11);
                 Console.ReadKey();
             }        
         }

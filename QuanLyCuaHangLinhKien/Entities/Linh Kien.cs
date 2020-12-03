@@ -11,8 +11,9 @@ namespace QuanLyCuaHangLinhKien.Entities
         private DateTime ngaygio;
         private string tenlk;
         private string malk;
-        private int gia;
-        private int soluong;  
+        private double gia;
+        private int soluong;
+        private double tinhtien;
         public DateTime Ngaygio
         {
             get { return ngaygio; }
@@ -35,7 +36,7 @@ namespace QuanLyCuaHangLinhKien.Entities
                     malk = value;
             }
         }
-        public int Gia
+        public double Gia
         {
             get { return gia; }
             set
@@ -53,26 +54,32 @@ namespace QuanLyCuaHangLinhKien.Entities
                     soluong = value;
             }
         }
+        public double Tinhtien
+        {
+            get { return Gia * Soluong; }
+        }
         public Linhkien()
         {
             ngaygio = DateTime.Now;
         }
         //Phương thức thiết lập sao chép
-        public Linhkien(Linhkien sp)
+        public Linhkien(Linhkien lk)
         {
-            this.ngaygio = sp.ngaygio;
-            this.malk = sp.malk;
-            this.tenlk = sp.tenlk;
-            this.gia = sp.gia;
-            this.soluong = sp.soluong;
+            this.ngaygio = lk.ngaygio;
+            this.malk = lk.malk;
+            this.tenlk = lk.tenlk;
+            this.gia = lk.gia;
+            this.soluong = lk.soluong;
+            this.tinhtien = lk.tinhtien;
         }
-        public Linhkien(DateTime ngaygio,string malk, string tenlk, int gia,int soluong)
+        public Linhkien(DateTime ngaygio,string malk, string tenlk, double gia,int soluong,double tinhtien)
         {
             this.ngaygio = ngaygio;
             this.malk= malk;
             this.tenlk = tenlk;
             this.gia = gia;
             this.soluong = soluong;
+            this.tinhtien = tinhtien;
         }
     }
 }
