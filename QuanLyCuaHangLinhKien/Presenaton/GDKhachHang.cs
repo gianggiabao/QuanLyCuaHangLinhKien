@@ -119,12 +119,13 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 if (matim == list[i].Makh) break;
             if (i < list.Count)
             {
-                Console.SetCursorPosition(13, 9);  Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
-                Console.SetCursorPosition(13, 10); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
-                Console.SetCursorPosition(13, 11); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
+                Console.SetCursorPosition(13, 9);   Console.WriteLine("║                                  Thông tin khách hàng                                   ║");
+                Console.SetCursorPosition(13, 10);  Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
+                Console.SetCursorPosition(13, 11);  Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
+                Console.SetCursorPosition(13, 12);  Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
                 Console.WriteLine("\t     ║" + list[i].Ngaygiokh + "║   " + list[i].Makh + "\t║    " + list[i].Tenkh + "\t║    " + list[i].Diachi + "\t║  " + list[i].SDT+ "  ║");
-                Console.SetCursorPosition(13, 13); Console.WriteLine("╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩══════════════╝");
-                Console.SetCursorPosition(15, 15); Console.Write("Nhấn phím bất kỳ để tiếp tục.....");
+                Console.SetCursorPosition(13, 14);  Console.WriteLine("╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩══════════════╝");
+                Console.SetCursorPosition(13, 15);  Console.Write("  Nhấn phím bất kỳ để tiếp tục.....");
                 Console.ReadKey();
             }
             else

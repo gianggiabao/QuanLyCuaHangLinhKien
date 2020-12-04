@@ -129,12 +129,13 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 if (matim == list[i].Manv) break;
             if (i < list.Count)
             {
-                Console.SetCursorPosition(9, 9);  Console.WriteLine("╠═══════╦═══════════════════════╦═══════════════╦═══════════════╦═══════════╦═══════════╦═══════════════╣");
-                Console.SetCursorPosition(9, 10); Console.WriteLine("║ Mã NV ║    Tên nhân viên      ║    Địa chỉ    ║      SĐT      ║Số Ngày Làm║   Hệ Số   ║  Tiền Lương   ║");
-                Console.SetCursorPosition(9, 11); Console.WriteLine("╠═══════╬═══════════════════════╬═══════════════╬═══════════════╬═══════════╬═══════════╬═══════════════╣");
-                Console.SetCursorPosition(9, 12); Console.WriteLine("║ " + list[i].Manv + "\t ║   " + list[i].Tennv + "\t ║    " + list[i].Diachi + "\t ║   " + list[i].SDT + "\t ║   " + list[i].SNLV + "\t     ║  " + list[i].HSL + "\t ║  " + list[i].Tinhluong + "\t ║ ");
-                Console.SetCursorPosition(9, 13); Console.WriteLine("╚═══════╩═══════════════════════╩═══════════════╩═══════════════╩═══════════╩═══════════╩═══════════════╝");
-                Console.SetCursorPosition(9, 14); Console.Write(" Nhập Phím Bất Kỳ Để Tiếp Tục...");
+                Console.SetCursorPosition(9, 9);  Console.WriteLine("║                                      Thông tin nhân viên                                              ║");
+                Console.SetCursorPosition(9, 10); Console.WriteLine("╠═══════╦═══════════════════════╦═══════════════╦═══════════════╦═══════════╦═══════════╦═══════════════╣");
+                Console.SetCursorPosition(9, 11); Console.WriteLine("║ Mã NV ║    Tên nhân viên      ║    Địa chỉ    ║      SĐT      ║Số Ngày Làm║   Hệ Số   ║  Tiền Lương   ║");
+                Console.SetCursorPosition(9, 12); Console.WriteLine("╠═══════╬═══════════════════════╬═══════════════╬═══════════════╬═══════════╬═══════════╬═══════════════╣");
+                Console.SetCursorPosition(9, 13); Console.WriteLine("║ " + list[i].Manv + "\t ║   " + list[i].Tennv + "\t ║    " + list[i].Diachi + "\t ║   " + list[i].SDT + "\t ║   " + list[i].SNLV + "\t     ║  " + list[i].HSL + "\t ║  " + list[i].Tinhluong + "\t ║ ");
+                Console.SetCursorPosition(9, 14); Console.WriteLine("╚═══════╩═══════════════════════╩═══════════════╩═══════════════╩═══════════╩═══════════╩═══════════════╝");
+                Console.SetCursorPosition(9, 15); Console.Write(" Nhập Phím Bất Kỳ Để Tiếp Tục...");
                 Console.ReadKey();
             }
             else
