@@ -93,7 +93,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             if (i < list.Count)
             {
                 Console.SetCursorPosition(27, 11); Console.Write("Xóa Thành Công.....");
-                KH.XoaKhachHang(Maxoa);
+                     KH.XoaKhachHang(Maxoa);
                 Console.ReadKey();
             }
             else

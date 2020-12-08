@@ -42,6 +42,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
             for (int i = 0; i < list.Count; ++i)
                 fwrite.WriteLine(list[i].Ngaygiokh + "#" + list[i].Makh + "#" + list[i].Tenkh + "#" + list[i].Diachi + "#" + list[i].SDT);
             fwrite.Close();
+
         }
     }
 }

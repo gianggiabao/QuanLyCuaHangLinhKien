@@ -41,6 +41,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
             for (int i = 0; i < list.Count; ++i)
                 fwrite.WriteLine(list[i].Ngaygio+"#"+ list[i].Malk + "#" + list[i].Tenlk + "#" + list[i].Gia+"#"+list[i].Soluong+ "#" + list[i].Tinhtien);
             fwrite.Close();
+
         }    
     }
 }
