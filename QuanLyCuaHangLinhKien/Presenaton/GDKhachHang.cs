@@ -16,7 +16,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(25, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(25, 6); Console.WriteLine("║                          Thêm Thông Tin Khách Hàng                        ║");
             Console.SetCursorPosition(25, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(25, 15); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
+            Console.SetCursorPosition(25, 15);Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
             Khachhang kh = new Khachhang();
             Console.SetCursorPosition(27, 8); Console.Write("Nhập Mã Khách Hàng: ");
             kh.Makh = Console.ReadLine();
