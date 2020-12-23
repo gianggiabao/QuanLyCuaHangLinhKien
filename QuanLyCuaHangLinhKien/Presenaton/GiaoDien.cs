@@ -26,7 +26,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
                 Console.SetCursorPosition(20, 14); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 15); Console.Write("║    3     ║            Quản Lý Nhân Viên                                   ║");
                 Console.SetCursorPosition(20, 16); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
-                Console.SetCursorPosition(20, 17); Console.Write("║    4     ║            Quản Lý Hóa Đơn                                     ║");
+                Console.SetCursorPosition(20, 17); Console.Write("║    4     ║            Báo Cáo/Thông Kê                                    ║");
                 Console.SetCursorPosition(20, 18); Console.Write("╠══════════╬════════════════════════════════════════════════════════════════╣");
                 Console.SetCursorPosition(20, 19); Console.Write("║    5     ║            Thoát Khỏi Chương Trình                             ║");
                 Console.SetCursorPosition(20, 20); Console.Write("╠══════════╩════════════════════════════════════════════════════════════════╣");
