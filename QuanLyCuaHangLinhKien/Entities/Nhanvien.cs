@@ -61,7 +61,7 @@ namespace QuanLyCuaHangLinhKien.Entities
             get { return songaylamviec; }
             set
             {
-                if (value > 0 && value <= 30)
+                if (value > 0 && value <= 31)
                     songaylamviec = value;
             }
         }
