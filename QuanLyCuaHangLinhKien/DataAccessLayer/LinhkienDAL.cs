@@ -27,7 +27,7 @@ namespace QuanLyCuaHangLinhKien.DataAccessLayer
             fread.Close();
             return list;
         }
-        //Chèn một bản ghi học sinh vào tệp
+        //Chèn một bản ghi  vào tệp
         public void ThemLinhkien(Linhkien lk)
         {   StreamWriter fwrite = File.AppendText(Txtfile);
             fwrite.WriteLine();
