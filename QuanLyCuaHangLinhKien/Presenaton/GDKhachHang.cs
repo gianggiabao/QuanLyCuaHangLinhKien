@@ -45,34 +45,41 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Sua()
         {
             Console.Clear();
-            Console.SetCursorPosition(25, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(25, 6); Console.WriteLine("║                          Sửa Thông Tin Khách Hàng                         ║");
-            Console.SetCursorPosition(25, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(25, 16); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
+            Console.SetCursorPosition(13, 5); Console.WriteLine("╔═════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(13, 6); Console.WriteLine("║                                  Sửa Thông Tin Khách Hàng                               ║");
+            Console.SetCursorPosition(13, 7); Console.WriteLine("╠═════════════════════════════════════════════════════════════════════════════════════════╣");
             List<Khachhang> list = KH.GetAllKhachHang();
             string Masua;
-            Console.SetCursorPosition(27, 9); Console.Write("Nhập Mã Khách Hàng Cần Sửa:");
+            Console.SetCursorPosition(13, 8);     Console.Write("║ Nhập Mã Khách Hàng Cần Sửa :                                                            ║");
+            Console.SetCursorPosition(43, 8);
             Masua = Console.ReadLine();
             int i;
             for (i = 0; i < list.Count; ++i)
                 if (list[i].Makh == Masua) break;
             if (i < list.Count)
             {
+                Console.SetCursorPosition(13, 9);  Console.WriteLine("║                                  Thông tin khách hàng                                   ║");
+                Console.SetCursorPosition(13, 10); Console.WriteLine("╠════════════════════╦═════════════╦═══════════════════════╦═══════════════╦══════════════╣");
+                Console.SetCursorPosition(13, 11); Console.WriteLine("║      Ngày Giờ      ║Mã Khách Hàng║    Tên Khách Hàng     ║    Địa Chỉ    ║     SĐT      ║");
+                Console.SetCursorPosition(13, 12); Console.WriteLine("╠════════════════════╬═════════════╬═══════════════════════╬═══════════════╬══════════════╣");
+                Console.WriteLine("\t     ║" + list[i].Ngaygiokh + "║   " + list[i].Makh + "\t║    " + list[i].Tenkh + "\t║    " + list[i].Diachi + "\t║  " + list[i].SDT + "  ║");
+                Console.SetCursorPosition(13, 14); Console.WriteLine("╚════════════════════╩═════════════╩═══════════════════════╩═══════════════╩══════════════╝");
                 Khachhang kh = new Khachhang(list[i]);
-                Console.SetCursorPosition(27, 11); Console.Write("Nhập Tên Khách Hàng Mới :");
+                Console.SetCursorPosition(13, 16); Console.Write("Nhập Tên Khách Hàng Mới :");
                 string ten = Console.ReadLine();
                 if (!string.IsNullOrEmpty(ten)) kh.Tenkh = ten;
-                Console.SetCursorPosition(27, 13); Console.Write("Nhập Địa Chỉ Khách Hàng Mới :");
+                Console.SetCursorPosition(13, 18); Console.Write("Nhập Địa Chỉ Khách Hàng Mới :");
                 string diachi = Console.ReadLine();
                 if (!string.IsNullOrEmpty(diachi)) kh.Diachi = diachi;
-                Console.SetCursorPosition(27, 15); Console.Write("Nhập Số Điện Thoại Mới :");
+                Console.SetCursorPosition(13, 20); Console.Write("Nhập Số Điện Thoại Mới :");
                 string sdt = Console.ReadLine();
                 if (!string.IsNullOrEmpty(sdt)) kh.SDT = sdt;
                 KH.SuaKhachHang(kh);
             }
             else
             {
-                Console.SetCursorPosition(27, 11); Console.Write("Không tồn tại mã khách hàng này.....");
+                Console.SetCursorPosition(13, 15); Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(13, 11); Console.Write("  Không tồn tại mã sản phẩm nay....");
                 Console.ReadKey();
             }
         }

@@ -49,40 +49,48 @@ namespace QuanLyCuaHangLinhKien.Presenaton
         public void Sua()
         {
             Console.Clear();
-            Console.SetCursorPosition(25, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════╗");
-            Console.SetCursorPosition(25, 6); Console.WriteLine("║                          Sửa Thông Tin Nhân viên                          ║");
-            Console.SetCursorPosition(25, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════╣");
-            Console.SetCursorPosition(25, 20); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════╝");
+            Console.SetCursorPosition(9, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗");
+            Console.SetCursorPosition(9, 6); Console.WriteLine("║                                      Sửa Thông Tin Nhân Viên                                          ║");
+            Console.SetCursorPosition(9, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════════════════════════════════╣");
+
             List<Nhanvien> list = NV.GetAllNhanvien();
             string Masua;
-            Console.SetCursorPosition(27, 9); Console.Write("Nhập Mã Nhân Viên Cần Sửa:");
+            Console.SetCursorPosition(9, 8); Console.Write("║ Nhập Mã Nhân Viên Cần Sửa :                                                                           ║");
+            Console.SetCursorPosition(40, 8);
             Masua = Console.ReadLine();
             int i;
             for (i = 0; i < list.Count; ++i)
                 if (list[i].Manv == Masua) break;
             if (i < list.Count)
             {
+                Console.SetCursorPosition(9, 9);  Console.WriteLine("║                                      Thông tin nhân viên                                              ║");
+                Console.SetCursorPosition(9, 10); Console.WriteLine("╠═══════╦═══════════════════════╦═══════════════╦═══════════════╦═══════════╦═══════════╦═══════════════╣");
+                Console.SetCursorPosition(9, 11); Console.WriteLine("║ Mã NV ║    Tên nhân viên      ║    Địa chỉ    ║      SĐT      ║Số Ngày Làm║   Hệ Số   ║  Tiền Lương   ║");
+                Console.SetCursorPosition(9, 12); Console.WriteLine("╠═══════╬═══════════════════════╬═══════════════╬═══════════════╬═══════════╬═══════════╬═══════════════╣");
+                Console.SetCursorPosition(9, 13); Console.WriteLine("║ " + list[i].Manv + "\t ║   " + list[i].Tennv + "\t ║    " + list[i].Diachi + "\t ║   " + list[i].SDT + "\t ║   " + list[i].SNLV + "\t     ║  " + list[i].HSL + "\t ║  " + list[i].Tinhluong + "\t ║ ");
+                Console.SetCursorPosition(9, 14); Console.WriteLine("╚═══════╩═══════════════════════╩═══════════════╩═══════════════╩═══════════╩═══════════╩═══════════════╝");
                 Nhanvien nv = new Nhanvien(list[i]);
-                Console.SetCursorPosition(27, 11); Console.Write("Nhập Tên Nhân Viên Mới :");
+                Console.SetCursorPosition(9, 16); Console.Write(" Nhập Tên Nhân Viên Mới :");
                 string ten = Console.ReadLine();
                 if (!string.IsNullOrEmpty(ten)) nv.Tennv = ten;
-                Console.SetCursorPosition(27, 13); Console.Write("Nhập Địa Chỉ Nhân Viên Mới :");
+                Console.SetCursorPosition(9, 18); Console.Write(" Nhập Địa Chỉ Nhân Viên Mới :");
                 string diachi = Console.ReadLine();
                 if (!string.IsNullOrEmpty(diachi)) nv.Diachi = diachi;
-                Console.SetCursorPosition(27, 15); Console.Write("Nhập Số Điện Thoại Mới :");
+                Console.SetCursorPosition(9, 20); Console.Write(" Nhập Số Điện Thoại Mới :");
                 string sdt = Console.ReadLine();
                 if (!string.IsNullOrEmpty(sdt)) nv.SDT = sdt;
-                Console.SetCursorPosition(27, 17); Console.Write("Nhập Số Ngày Làm Việc Mới :");
+                Console.SetCursorPosition(9, 22); Console.Write(" Nhập Số Ngày Làm Việc Mới :");
                 int songay = int.Parse(Console.ReadLine());
                 if (songay > 0 && songay <= 30)  nv.SNLV= songay;
-                Console.SetCursorPosition(27, 19); Console.Write("Nhập Hệ Số Lương Mới :");
+                Console.SetCursorPosition(9, 24); Console.Write(" Nhập Hệ Số Lương Mới :");
                 double heso =double.Parse( Console.ReadLine());
                 if (heso>0) nv.HSL = heso;
                 NV.SuaNhanvien(nv);
             }
             else
             {
-                Console.SetCursorPosition(27, 11); Console.Write("Không tồn tại mã khách hàng này.....");
+                Console.SetCursorPosition(9, 15); Console.WriteLine("╚═══════════════════════════════════════════════════════════════════════════════════════════════════════╝");
+                Console.SetCursorPosition(9, 11); Console.Write("   Không tồn tại mã khách hàng này.....");
                 Console.ReadKey();
             }
         }
@@ -118,8 +126,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(9, 5); Console.WriteLine("╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗");
             Console.SetCursorPosition(9, 6); Console.WriteLine("║                                      Tìm Kiếm Thông Tin Nhân Viên                                     ║");
             Console.SetCursorPosition(9, 7); Console.WriteLine("╠═══════════════════════════════════════════════════════════════════════════════════════════════════════╣");
-            INhanvienBLL sp = new NhanvienBLL(); 
-            List<Nhanvien> list = sp.TimNhanvien(new Nhanvien());
+            List<Nhanvien> list = NV.GetAllNhanvien();
             string matim;
             Console.SetCursorPosition(9, 8);     Console.Write("║ Nhập mã nhân viên cần tìm:                                                                            ║");
             Console.SetCursorPosition(39, 8);
