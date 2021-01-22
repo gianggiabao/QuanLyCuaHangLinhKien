@@ -38,7 +38,7 @@ namespace QuanLyCuaHangLinhKien.Presenaton
             Console.SetCursorPosition(9, 9); Console.WriteLine("╠════════════════════════╬══════════════╬═══════════════╬═══════════════╬══════════════╬═══════════════╣");                      
             List<Linhkien> List = LK.GetAllLinhkien();
             foreach (var lk in List)
-            Console.WriteLine("\t ║ " + lk.Ngaygio + "  ║      " + lk.Malk + "\t ║     " + lk.Tenlk + "\t ║     " + lk.Gia + "\t ║     " + lk.Soluong + "\t║    " + lk.Tinhtien+ "\t║");
+            Console.WriteLine("\t ║ " + lk.Ngaygio + "    ║      " + lk.Malk + "\t ║     " + lk.Tenlk + "\t ║     " + lk.Gia + "\t ║     " + lk.Soluong + "\t║    " + lk.Tinhtien+ "\t║");
                                     Console.WriteLine("         ╚════════════════════════╩══════════════╩═══════════════╩═══════════════╩══════════════╩═══════════════╝");        
             Console.Write("         Nhập Phím Bất Kỳ Để Tiếp Tục...");
             
